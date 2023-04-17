@@ -18,8 +18,6 @@ An **object** that will store information about a particular course. The informa
 
 **The methods you will need to create are:**
 
--[] to do one?
-
 |  Method Name | purpose | @param | @return |
 |--|--|--|--|
 | Course() |creates new Course object|course code(String)</br>year (int)</br>semester (int)  | void |
