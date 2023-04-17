@@ -7,12 +7,11 @@ public class Course {
 	 * year (int) ex: 4
 	 * sem (int) ex: 2
 	 * marks (int array size 10) ex: marks[0] = 78
-	 * 
 	**/
 	String code;
 	int year;
 	int sem;
-	//Level 4 => marks as ArrayList rather than set array
+	//Level 4 => use ArrayList for marks rather than a set array
 	int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	public Course(String inpCode, int inpYear, int inpSem){
