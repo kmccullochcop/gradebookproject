@@ -1,5 +1,4 @@
 # Gradebook Instructions
-
 ## IMPORTANT STUFF
 
 - **Do not change the file structure!** You will need (and already have) 3 files, in 2 separate packages. You will be working ONLY in these files. It looks like this:
