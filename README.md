@@ -7,10 +7,9 @@
 
 - **Do not change the code setup WITHIN the files** -- you are given imports, package declarations, and class names. DO NOT CHANGE THESE.
 
-- **Do not change the main method in gradebook.java** . This is what is being used to check if you have created the gradebook properly.
+- **Do not change the methods in gradebook.java** . This is what is being used to check if you have created the gradebook properly. You should use your ability to read code in order to see how to create your methods. 
 
 ## Part 1 - Course.java
-
 An **object** that will store information about a particular course. The information it stores is:
 - code: a **String**, the course code **(ex: MTH1W, ICS3U)**
 - year: an **int**, the year of study when the student took the course **(ex: 1, 2, 3, so on )**
@@ -29,7 +28,6 @@ An **object** that will store information about a particular course. The informa
 | avg() |returns the average mark for the course| N/A | double |
 
 ## Part 2 - Student.java
-
 Student is an **object** that will store information about a student's studies. The information it stores is:
 - name: a **String**, the student's name **(ex: Jim, Sarah, etc.)**
 - grade: an **int**, the ***current*** grade of the student (ex: 9, 10, and so on)
@@ -49,3 +47,14 @@ Student is an **object** that will store information about a student's studies. 
 | totalAvg() |returns the total average of all courses across all years for a student| N/A | double|
 | yearAvg() |returns the total average of all courses across one year for a student| year (int) | double|
 | semAvg() |returns the total average of all courses across one semester for a student| year (int), semester (int) | double|
+
+
+## Extensions:
+If you would like to go above and beyond with this project, you may do so in a few different ways. 
+Some of these are, but are not limited to:
+- create getCoursesByYear() and/or getCoursesBySem() methods 
+- Use ArrayLists for Courses[] ( and change setCourse() to addCourse() ) 
+- Use ArrayLists for marks[] (and change setMark() to addMark())
+- and/or whatever else you can think of! 
+
+
