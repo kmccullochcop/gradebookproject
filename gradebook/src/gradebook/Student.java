@@ -14,44 +14,92 @@ public class Student {
 	String name;
 	int grade;
 	ArrayList<Course> courses = new ArrayList<Course>();
-//	Course[] courses = new Course[12];
+	//Course[] courses = new Course[12];
+
 	
+	/** Student
+	 *  creates new Student object
+	 *  @param: name (String), grade (int)
+	 *  @return: void
+	**/
 	public Student(String inpName, int inpGrade){
-		name = inpName;
-		grade = inpGrade;
+	
 	}
 	
-	public void setName(String inpName) {
-		name = inpName;
-	}
+	/**	setName
+	 * sets the name of the student
+	 * @param: new name (String)
+	 *  @return: void
+	 *  **/
 	
+	/**	getName
+	 * returns the student's name
+	 * @param: null
+	 * @return: String
+	**/
 	public String getName() {
 		return name;
 	}
-	
+	/** setGrade
+	 *  changes the current grade value for the student
+	 *  @param: new grade (int)
+	 *  @return: void
+	**/
 	public void setGrade(int inpGrade) {
 		grade = inpGrade;
 	}
 	
+	/** getGrade
+	 *  returns the current grade value for the student
+	 *  @param: null
+	 *  @return: int
+	**/
 	public int getGrade() {
 		return grade;
-	}
-	
-	public void addCourse(String courseCode, int year, int sem) {
-		courses.add(new Course(courseCode, year, sem));
+	} 
+  
+	/** addCourse
+	 *  adds new Course to ArrayList of courses
+	 *  @param: course code (String), course year (int), course semester (int)
+	 *  @return: void
+	**/
+	public void addCourse() {
 		return;
 	}
 	
-//	public void setCourse(int index, String courseCode, int year, int sem) {
-//		if(index < courses.length) {
-//			courses[index] = new Course(courseCode, year, sem);
-//		}
-//		return;
-//	}
+	/** setCourse
+	 *  adds a new course to the courses array at a given index
+	 *  @param: index (int), course code (String), year (int), semester (int)
+	 *  @return: void
+	**/
+	public void setCourse(int index, String courseCode, int year, int sem) {
+		if(index < courses.length) {
+			courses[index] = new Course(courseCode, year, sem);
+		}
+		return;
+	}
 	
-	public ArrayList<Course> getCourses() {
+	/** getCourses
+	 * 	returns the array of courses
+	 *  @param: null
+	 *  @return: Course[]
+	**/
+	public Course[] getCourses() {
 		return courses;
 	}
+	
+	/** getCoursesByYear
+	 *  returns Course ArrayList of courses from a given year
+	 *  @param: year (int)
+	 *  @return: Course ArrayList 
+	**/
+	
+	/** getCoursesBySemester
+	 *  returns Course ArrayList of courses from a given semester
+	 *  @param: semester (int), year (int)
+	 *  @return: Course ArrayList 
+	**/
+	
 	
 //	public Course[] getCoursesYear(int year){
 //		
@@ -62,6 +110,11 @@ public class Student {
 //		}
 //	}
 	
+	/** semAvg
+	 *  returns the average of a student's courses across one semester
+	 *  @param: semester (int), year (int)
+	 *  @return: double
+	**/
 	public double semAvg(int sem, int year) {
 		//for all courses w/ matching sem # & year #
 		//course.avg() 
@@ -77,6 +130,12 @@ public class Student {
 		return avg/numCourses;
 	}
 	
+	/** yearAvg
+	 *  returns the average of a student's courses across one year
+	 *  @param: year (int)
+	 *  @return: double
+	**/
+	
 	public double yearAvg(int year) {
 		double avg = 0;
 		int numCourses = 0;
@@ -89,6 +148,11 @@ public class Student {
 		return avg/numCourses;
 	}
 	
+	/** totalAvg
+	 *  returns the average of a student's courses across all years
+	 *  @param: null
+	 *  @return: double
+	**/
 	public double totalAvg() {
 		double avg = 0;
 		for(Course c : courses) {
