@@ -11,8 +11,8 @@ public class Course {
 	String code;
 	int year;
 	int sem;
-	//Level 4 => use ArrayList for marks rather than a set array
-	int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	ArrayList<Integer> marks = new ArrayList<Integer>();
+	//int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	/** Course
 	 *  creates new Course object
@@ -81,6 +81,7 @@ public class Course {
 	 *  @return: void
 	**/
 	public void addMark(int mark) {
+		marks.add(mark);
 		return;
 	}
 	

@@ -15,6 +15,7 @@ public class Student {
 	int grade;
 	ArrayList<Course> courses = new ArrayList<Course>();
 	//Course[] courses = new Course[12];
+
 	
 	/** Student
 	 *  creates new Student object
@@ -55,8 +56,8 @@ public class Student {
 	**/
 	public int getGrade() {
 		return grade;
-	}
-	
+	} 
+  
 	/** addCourse
 	 *  adds new Course to ArrayList of courses
 	 *  @param: course code (String), course year (int), course semester (int)
