@@ -13,7 +13,8 @@ public class Student {
 	 **/
 	String name;
 	int grade;
-	Course[] courses = new Course[12];
+	ArrayList<Course> courses = new ArrayList<Course>();
+//	Course[] courses = new Course[12];
 	
 	public Student(String inpName, int inpGrade){
 		name = inpName;
@@ -36,20 +37,19 @@ public class Student {
 		return grade;
 	}
 	
-	//level 4 
-	//have to use Courses as ArrayList
-	public void addCourse() {
+	public void addCourse(String courseCode, int year, int sem) {
+		courses.add(new Course(courseCode, year, sem));
 		return;
 	}
 	
-	public void setCourse(int index, String courseCode, int year, int sem) {
-		if(index < courses.length) {
-			courses[index] = new Course(courseCode, year, sem);
-		}
-		return;
-	}
+//	public void setCourse(int index, String courseCode, int year, int sem) {
+//		if(index < courses.length) {
+//			courses[index] = new Course(courseCode, year, sem);
+//		}
+//		return;
+//	}
 	
-	public Course[] getCourses() {
+	public ArrayList<Course> getCourses() {
 		return courses;
 	}
 	

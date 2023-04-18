@@ -11,8 +11,8 @@ public class Course {
 	String code;
 	int year;
 	int sem;
-	//Level 4 => use ArrayList for marks rather than a set array
-	int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	ArrayList<Integer> marks = new ArrayList<Integer>();
+	//int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	public Course(String inpCode, int inpYear, int inpSem){
 		code = inpCode;
@@ -32,20 +32,19 @@ public class Course {
 		return code;
 	}
 	
-	public int[] getMarks() {
+	public ArrayList<Integer> getMarks() {
 		return marks;
 	}
 	
-	public void setMark(int inpMark, int index) {
-		if(index < marks.length) {
-			marks[index] = inpMark;
-		}
-		return;
-	}
+//	public void setMark(int inpMark, int index) {
+//		if(index < marks.length) {
+//			marks[index] = inpMark;
+//		}
+//		return;
+//	}
 	
-	//level 4 method
-	//have to use marks as array lists
 	public void addMark(int mark) {
+		marks.add(mark);
 		return;
 	}
 	
