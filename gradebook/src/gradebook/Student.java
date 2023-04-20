@@ -86,7 +86,8 @@ public class Student {
 	 *  @param: course code (String), newMark (int)
 	 *  @return: void
 	**/
-	public void addMark(String courseCode, int newMark) {
+	public void addMark(Course course, int newMark) {
+		this.courses.get(this.courses.indexOf(course)).addMark(newMark);
 		return;
 	}
 	
@@ -105,7 +106,13 @@ public class Student {
 	 *  @return: Course
 	**/
 	public Course getCourse(String code, int year, int sem) {
-		
+		for(Course c : this.courses) {
+			if(c.getCode().equals(code) && c.getYear() == year && c.getSem() == sem) {
+				System.out.println(c);
+				return c;
+			}
+		}
+		return new Course(null, -1, -1);
 	}
 	
 	
@@ -174,6 +181,7 @@ public class Student {
 				"\n Courses:\n"+coursesString;
 	}
 	
+	
 	//OPTIONAL (Level 4) EXTENSIONS ONCE BASE IS COMPLETE
 	/** getCourses
 	 * 	overloading getCourses
@@ -230,12 +238,5 @@ public class Student {
 		}
 		return subCourses;
 	}
-	/** getCourse
-	 * 	returns a course, as specified by inputs
-	 *  @param: code (String), year (int), sem (int)
-	 *  @return: Course
-	**/
-	public Course getCourse(String code, int year, int sem) {
-		
-	}
+	
 }

@@ -106,7 +106,18 @@ public class gradebook {
 		testStudent.addCourse("ICS2O", 2, 1);
 		testStudent.addCourse("ICS3U", 3, 2);
 		testStudent.addCourse("ICS4U", 4, 1);
-//		printTranscript(testStudent);
+		
+		for(int i : testMarks) {
+			testStudent.addMark(testStudent.getCourse("ICS3U", 3, 2), i);
+		}
+		for(int i : testMarks) {
+			testStudent.addMark(testStudent.getCourse("ICS2O", 2, 1), i);
+		}
+		for(int i : testMarks) {
+			testStudent.addMark(testStudent.getCourse("ICS4U", 4, 1), i);
+		}
+		
+		printTranscript(testStudent);
 //		
 //		printTranscript(testStudent, 3);
 //		
