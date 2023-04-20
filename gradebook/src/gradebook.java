@@ -103,16 +103,20 @@ public class gradebook {
 			testCourse.addMark(i);
 		}
 		
-		
+		testStudent.addCourse("ICS2O", 2, 1);
 		testStudent.addCourse("ICS3U", 3, 2);
+		testStudent.addCourse("ICS4U", 4, 1);
 //		printTranscript(testStudent);
 //		
 //		printTranscript(testStudent, 3);
 //		
 //		printTranscript(testStudent, 3, 2);
 		
-		System.out.println(testStudent.getCoursesBySem(3, 2));
-		System.out.println(testStudent.getCoursesBySem(2, 2));
+		printTranscript(testStudent);
+		
+//		System.out.println(testStudent.getCoursesBySem(3, 2));
+//		System.out.println(testStudent.getCoursesBySem(2, 2));
+//		System.out.println(testStudent.getCoursesBySub("ICS"));
 		
 		
 		

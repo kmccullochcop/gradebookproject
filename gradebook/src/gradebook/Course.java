@@ -3,26 +3,26 @@ import java.util.*;
 
 public class Course {
 	/**Course Object
-	 * code (string) ex: ENG3U
-	 * year (int) ex: 4
-	 * sem (int) ex: 2
-	 * marks (int array size 10) ex: marks[0] = 78
+	 * @prop:
+	 * 		code (string) ex: ENG3U
+	 * 		year (int) ex: 4
+	 *		sem (int) ex: 2
+	 *		marks (int array size 10) ex: marks[0] = 78
 	**/
 	String code;
 	int year;
 	int sem;
 	ArrayList<Integer> marks = new ArrayList<Integer>();
-	//int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	/** Course
-	 *  creates new Course object
+	 *  creates new Course object w/ given values
 	 *  @param: course code (String), year of course (int), semester of course (int)
 	 *  @return: void
 	**/
 	public Course(String inpCode, int inpYear, int inpSem){
-		code = inpCode;
-		sem = inpSem;
-		year = inpYear;
+		this.code = inpCode;
+		this.sem = inpSem;
+		this.year = inpYear;
 	}
 	
 	/** getSem
@@ -31,7 +31,7 @@ public class Course {
 	 *  @return: void
 	**/
 	public int getSem() {
-		return sem;
+		return this.sem;
 	}
 	
 	/** getYear
@@ -40,7 +40,7 @@ public class Course {
 	 *  @return: int
 	**/
 	public int getYear() {
-		return year;
+		return this.year;
 	}
 	
 	/** getCode
@@ -49,7 +49,7 @@ public class Course {
 	 *  @return: String
 	**/
 	public String getCode() {
-		return code;
+		return this.code;
 	}
 	
 	/** getMarks
@@ -58,7 +58,7 @@ public class Course {
 	 *  @return: int[]
 	**/
 	public ArrayList<Integer> getMarks() {
-		return marks;
+		return this.marks;
 	}
 	
 	/** addMark
@@ -67,7 +67,7 @@ public class Course {
 	 *  @return: void
 	**/
 	public void addMark(int mark) {
-		marks.add(mark);
+		this.marks.add(mark);
 		return;
 	}
 	
@@ -78,13 +78,13 @@ public class Course {
 	**/
 	public double avg() {
 		int avg = 0;
-		if(marks.size() == 0) {
+		if(this.marks.size() == 0) {
 			return 0.0;
 		}
-		for(int x : marks) {
+		for(int x : this.marks) {
 			avg+=x;
 		}
-		return (double)(avg/marks.size());
+		return (double)(avg/this.marks.size());
 	}
 	
 	/** toString
@@ -93,7 +93,7 @@ public class Course {
 	 *  @return: String
 	**/
 	public String toString() {
-		return code+"\t\t"+year+"/"+sem+"\t\t"+marks.size()+"\t\t"+this.avg();
+		return this.code+"\t\t"+this.year+"/"+this.sem+"\t\t"+this.marks.size()+"\t\t"+this.avg();
 	}
 	
 }
