@@ -57,24 +57,10 @@ public class Course {
 	 *  @param: null
 	 *  @return: int[]
 	**/
-	public int[] getMarks() {
+	public ArrayList<Integer> getMarks() {
 		return marks;
 	}
 	
-	/** setMark
-	 *  adds new mark at given index
-	 *  @param: new mark (int), index (int)
-	 *  @return: void
-	**/
-	public void setMark(int inpMark, int index) {
-		if(index < marks.length) {
-			marks[index] = inpMark;
-		}
-		return;
-	}
-	
-	//level 4 method
-	//have to use marks as array lists
 	/** addMark
 	 *  adds new mark to marks ArrayList
 	 *  @param: new mark (int)
@@ -92,10 +78,22 @@ public class Course {
 	**/
 	public double avg() {
 		int avg = 0;
+		if(marks.size() == 0) {
+			return 0.0;
+		}
 		for(int x : marks) {
 			avg+=x;
 		}
-		return (double)(avg/marks.length);
+		return (double)(avg/marks.size());
+	}
+	
+	/** toString
+	 *  returns String representation of a Course object
+	 *  @param: null
+	 *  @return: String
+	**/
+	public String toString() {
+		return code+"\t\t"+year+"/"+sem+"\t\t"+marks.size()+"\t\t"+this.avg();
 	}
 	
 }
