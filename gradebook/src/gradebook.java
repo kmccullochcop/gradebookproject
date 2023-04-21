@@ -124,7 +124,8 @@ public class gradebook {
 		
 		System.out.println("---------------------\nPassed: "+testCourse()+"/6 for Course class");
 		System.out.println("---------------------\n");
-		System.out.println("Passed: "+testStudent()+"/16 for Student class\n---------------------");
+		System.out.println("Passed: "+testStudent()+"/16 for Student class");
+		System.out.println("---------------------\n Passed: "+testStudentExtensions()+"/3 for Student class");
 		
 
 	}
@@ -137,7 +138,6 @@ public class gradebook {
 		count += testStudentCourse();
 		count += testStudentAvgs();
 		
-//		count += testStudentExtensions();
 		return count;
 		
 	}
@@ -272,26 +272,52 @@ public class gradebook {
 	public static int testStudentExtensions() {
 		int count = 0;
 		//create student w/ info
-		Student test = new Student("testStu", 9);
+		
+		
 		
 		try {
-			for(int x = 0; x < gr9sem1.length; x++) {
+			Student test = new Student("testStu", 9);
+			ArrayList<Course> gr9Courses  = new ArrayList<>();
+			ArrayList<Course> gr10sem1Courses  = new ArrayList<>();
+
+			ArrayList<Course> ICSCourses  = new ArrayList<>();
+			ICSCourses.add(new Course("ICS2O", 2, 2));
+			ICSCourses.add(new Course("ICS3U", 3, 1));
+			ICSCourses.add(new Course("ICS4U", 4, 1));
+			
+			
+			for(int x = 0; x<4; x++) {
+				gr9Courses.add(new Course(gr9sem1[x], 1, 1));
+				gr9Courses.add(new Course(gr9sem2[x], 1, 2));
+				gr10sem1Courses.add(new Course(gr10sem1[x], 2, 1));
+				
+				
 				test.addCourse(gr9sem1[x], 1, 1);
-			}
-			for(int x = 0; x < gr9sem2.length; x++) {
-				test.addCourse(gr9sem2[x], 2, 1);
-			}
-			for(int x = 0; x < gr10sem1.length; x++) {
+				test.addCourse(gr9sem2[x], 1, 2);
 				test.addCourse(gr10sem1[x], 2, 1);
+				test.addCourse(gr10sem2[x], 2, 2);
+				test.addCourse(gr11sem1[x], 3, 1);
+				test.addCourse(gr11sem2[x], 3, 2);
+				test.addCourse(gr12sem1[x], 4, 1);
+				test.addCourse(gr12sem2[x], 4, 1);
 			}
-			//test.getCourses(year);
-			//test.getCourses(year, sem);
-			//test.getCourses(sub);
+			
+			System.out.println("Student.getCourses(year)");
+			count += checkResult(gr9Courses.toString().replace(",", "\n\t\t\t"), 
+					test.getCourses(1).toString().replace(",", "\n\t\t\t"));
+			
+			System.out.println("Student.getCourses(year, sem)");
+			count += checkResult(gr10sem1Courses.toString().replace(",", "\n\t\t\t"), 
+					test.getCourses(2, 1).toString().replace(",", "\n\t\t\t"));
+			
+			System.out.println("Student.getCourses(sub)");
+			count += checkResult(ICSCourses.toString().replace(",", "\n\t\t\t"), 
+					test.getCourses("ICS").toString().replace(",", "\n\t\t\t"));
 		}
 		catch(Exception e){
 			System.out.println("Error during testStudentExtensions()");
-			return count;
 		}
+		
 		return count;
 
 	}
@@ -338,32 +364,31 @@ public class gradebook {
 		System.out.println("\tExpected:\t"+expected);
 		System.out.println("\tActual:\t\t"+actual);
 		if(expected.equals(actual)) {
+			System.out.println("Pass");
 			return 1;
 		}
+		System.out.println("Fail");
 		return 0;
 	}
 	public static int checkResult(int expected, int actual) {
 		System.out.println("\tExpected:\t"+expected);
 		System.out.println("\tActual:\t\t"+actual);
 		if(expected == actual) {
+			System.out.println("Pass");
 			return 1;
 		}
+		System.out.println("Fail");
 		return 0;
 	}
 	public static int checkResult(double expected, double actual) {
 		System.out.println("\tExpected:\t"+expected);
 		System.out.println("\tActual:\t\t"+actual);
 		if(expected == actual) {
+			System.out.println("Pass");
 			return 1;
 		}
+		System.out.println("Fail");
 		return 0;
 	}
-//	public static int checkResult(ArrayList expected, ArrayList actual) {
-//		System.out.println("\tExpected:\t"+expected);
-//		System.out.println("\tActual:\t\t"+actual);
-//		if(expected.equals(actual)) {
-//			return 1;
-//		}
-//		return 0;
-//	}
+
 }
