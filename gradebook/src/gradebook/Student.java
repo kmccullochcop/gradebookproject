@@ -70,6 +70,30 @@ public class Student {
 	public int getGrade() {
 		return this.grade;
 	} 
+	
+	/** getCourses
+	 * 	returns the array of courses
+	 *  @param: null
+	 *  @return: ArrayList<Course>
+	**/
+	public ArrayList<Course> getCourses() {
+		return this.courses;
+	}
+	
+	/** getCourse
+	 * 	returns a course, as specified by inputs
+	 *  @param: code (String), year (int), sem (int)
+	 *  @return: Course
+	**/
+	public Course getCourse(String code, int year, int sem) {
+		for(Course c : this.courses) {
+			if(c.getCode().equals(code) && c.getYear() == year && c.getSem() == sem) {
+				
+				return c;
+			}
+		}
+		return new Course(null, -1, -1);
+	}
   
 	/** addCourse
 	 *  adds new Course to ArrayList of courses
@@ -91,58 +115,27 @@ public class Student {
 		return;
 	}
 	
-	/** getCourses
-	 * 	returns the array of courses
+	/** avg
+	 *  returns a student's overall average
 	 *  @param: null
-	 *  @return: ArrayList<Course>
-	**/
-	public ArrayList<Course> getCourses() {
-		return this.courses;
-	}
-	
-	/** getCourse
-	 * 	returns a course, as specified by inputs
-	 *  @param: code (String), year (int), sem (int)
-	 *  @return: Course
-	**/
-	public Course getCourse(String code, int year, int sem) {
-		for(Course c : this.courses) {
-			if(c.getCode().equals(code) && c.getYear() == year && c.getSem() == sem) {
-				System.out.println(c);
-				return c;
-			}
-		}
-		return new Course(null, -1, -1);
-	}
-	
-	
-	/** semAvg
-	 *  returns the average of a student's courses across one semester
-	 *  @param: semester (int), year (int)
 	 *  @return: double
 	**/
-	public double semAvg(int sem, int year) {
-		//for all courses w/ matching sem # & year #
-		//course.avg() 
-		//then avg the answer
+	public double avg() {
 		double avg = 0;
-		int numCourses = 0;
 		for(Course c : this.courses) {
-			if (c.getYear() == year && c.getSem() == sem) {
-				avg+=c.avg();
-				numCourses++;
-			}
+			avg+=c.avg();
 		}
-		return avg/numCourses;
+		return avg/(courses.size());
 	}
 	
-	/** yearAvg
-	 *  returns the average of a student's courses across one year
-	 *  @param: year (int)
+	/** avg
+	 * 	overloading avg() 
+	 *  returns the average of a student's courses across one semester in one year
+	 *  @param: year (int), semester (int)
 	 *  @return: double
 	**/
 	
-	public double yearAvg(int year) {
+	public double avg(int year) {
 		double avg = 0;
 		int numCourses = 0;
 		for(Course c : this.courses) {
@@ -154,17 +147,22 @@ public class Student {
 		return avg/numCourses;
 	}
 	
-	/** totalAvg
-	 *  returns the average of a student's courses across all years
-	 *  @param: null
+	/** avg
+	 * 	overloading avg() 
+	 *  returns the average of a student's courses across one semester in one year
+	 *  @param: year (int), semester (int)
 	 *  @return: double
 	**/
-	public double totalAvg() {
+	public double avg(int year, int sem) {
 		double avg = 0;
+		int numCourses = 0;
 		for(Course c : this.courses) {
-			avg+=c.avg();
+			if (c.getYear() == year && c.getSem() == sem) {
+				avg+=c.avg();
+				numCourses++;
+			}
 		}
-		return avg/(courses.size());
+		return avg/numCourses;
 	}
 	
 	/** toString
@@ -177,8 +175,8 @@ public class Student {
 		for(Course c : this.courses) {
 			coursesString += c.toString();
 		}
-		return "Student: "+this.name+"\tGrade: "+this.grade+
-				"\n Courses:\n"+coursesString;
+		//Student: Default Name		Grade: 9 		
+		return "Student: "+this.name+"\tGrade: "+this.grade;
 	}
 	
 	
@@ -231,7 +229,6 @@ public class Student {
 	public ArrayList<Course> getCourses(String sub){
 		ArrayList<Course> subCourses = new ArrayList<>();
 		for(Course c : this.courses) {
-			System.out.println(c.getCode().substring(0,3));
 			if(c.getCode().length() >=4 && sub.equals(c.getCode().substring(0, 3))) {
 				subCourses.add(c);
 			}
