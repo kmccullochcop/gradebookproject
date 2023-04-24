@@ -84,7 +84,7 @@ public class Course {
 		for(int x : this.marks) {
 			avg+=x;
 		}
-		return (double)(avg/this.marks.size());
+		return (double)avg/this.marks.size();
 	}
 	
 	/** toString
