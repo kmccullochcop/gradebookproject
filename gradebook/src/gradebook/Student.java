@@ -35,6 +35,21 @@ public class Student {
 		this.grade = inpGrade;
 	}
 	
+	//DO NOT CHANGE THIS METHOD
+	/** toString
+	 *  returns the String representation of a student object
+	 *  @param: null
+	 *  @return: double
+	**/
+	public String toString() {
+		String coursesString = "";
+		for(Course c : this.courses) {
+			coursesString += c.toString();
+		}
+		//Student: Default Name		Grade: 9 		
+		return "Student: "+this.name+"\tGrade: "+this.grade;
+	}
+	
 	/**	setName
 	 * sets the name of the student
 	 * @param: new name (String)
@@ -134,7 +149,6 @@ public class Student {
 	 *  @param: year (int), semester (int)
 	 *  @return: double
 	**/
-	
 	public double avg(int year) {
 		double avg = 0;
 		int numCourses = 0;
@@ -163,20 +177,6 @@ public class Student {
 			}
 		}
 		return avg/numCourses;
-	}
-	
-	/** toString
-	 *  returns the String representation of a student object
-	 *  @param: null
-	 *  @return: double
-	**/
-	public String toString() {
-		String coursesString = "";
-		for(Course c : this.courses) {
-			coursesString += c.toString();
-		}
-		//Student: Default Name		Grade: 9 		
-		return "Student: "+this.name+"\tGrade: "+this.grade;
 	}
 	
 	

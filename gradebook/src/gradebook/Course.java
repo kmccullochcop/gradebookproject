@@ -25,6 +25,16 @@ public class Course {
 		this.year = inpYear;
 	}
 	
+	//DO NOT CHANGE THIS METHOD 
+	/** toString
+	 *  returns String representation of a Course object
+	 *  @param: null
+	 *  @return: String
+	**/
+	public String toString() {
+		return this.code+"\t\t"+this.year+"/"+this.sem+"\t\t"+this.marks.size()+"\t\t"+this.avg();
+	}
+	
 	/** getSem
 	 *  returns the semester of the course
 	 *  @param: null
@@ -87,13 +97,5 @@ public class Course {
 		return (double)avg/this.marks.size();
 	}
 	
-	/** toString
-	 *  returns String representation of a Course object
-	 *  @param: null
-	 *  @return: String
-	**/
-	public String toString() {
-		return this.code+"\t\t"+this.year+"/"+this.sem+"\t\t"+this.marks.size()+"\t\t"+this.avg();
-	}
 	
 }
