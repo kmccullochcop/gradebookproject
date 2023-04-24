@@ -39,7 +39,7 @@ public class gradebook {
 //		System.out.println("Passed: "+testCourse()+" /6");
 //		System.out.println("--------------------");
 //		
-		//Student.java 
+////Student.java 
 //		System.out.println("Testing Student Class");
 //		System.out.println("--------------------");
 //
@@ -57,7 +57,7 @@ public class gradebook {
 //		System.out.println("Student Class: Passed: "+count+" /16");
 //		System.out.println("--------------------");
 //		
-		//Tests for some OPTIONAL methods you can implement for the Student class
+////Tests for some OPTIONAL methods you can implement for the Student class
 //		System.out.println("Testing Student Class Opt. Methods");
 //		System.out.println("--------------------------------");
 //		System.out.println("Passed: "+testStudentExtensions()+" /3");

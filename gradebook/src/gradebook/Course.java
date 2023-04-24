@@ -19,11 +19,6 @@ public class Course {
 	 *  @param: course code (String), year of course (int), semester of course (int)
 	 *  @return: void
 	**/
-	public Course(String inpCode, int inpYear, int inpSem){
-		this.code = inpCode;
-		this.sem = inpSem;
-		this.year = inpYear;
-	}
 	
 	//DO NOT CHANGE THIS METHOD 
 	/** toString
@@ -40,62 +35,36 @@ public class Course {
 	 *  @param: null
 	 *  @return: void
 	**/
-	public int getSem() {
-		return this.sem;
-	}
 	
 	/** getYear
 	 *  returns the year the course was taken
 	 *  @param: null
 	 *  @return: int
 	**/
-	public int getYear() {
-		return this.year;
-	}
 	
 	/** getCode
 	 *  returns course code 
 	 *  @param: null
 	 *  @return: String
 	**/
-	public String getCode() {
-		return this.code;
-	}
 	
 	/** getMarks
 	 *  returns ArrayList of marks for the course
 	 *  @param: null
 	 *  @return: int[]
 	**/
-	public ArrayList<Integer> getMarks() {
-		return this.marks;
-	}
 	
 	/** addMark
 	 *  adds new mark to marks ArrayList
 	 *  @param: new mark (int)
 	 *  @return: void
 	**/
-	public void addMark(int mark) {
-		this.marks.add(mark);
-		return;
-	}
 	
 	/** avg
 	 *  returns average mark for course 
 	 *  @param: null
 	 *  @return: double
 	**/
-	public double avg() {
-		int avg = 0;
-		if(this.marks.size() == 0) {
-			return 0.0;
-		}
-		for(int x : this.marks) {
-			avg+=x;
-		}
-		return (double)avg/this.marks.size();
-	}
 	
 	
 }

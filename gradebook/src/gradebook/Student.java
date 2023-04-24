@@ -20,20 +20,12 @@ public class Student {
 	 *  @param: inpName (String), inpGrade (int)
 	 *  @return: void
 	**/
-	public Student(){
-		this.name = "Default Name";
-		this.grade = 9;
-	}
 	
 	/** Student
 	 *  creates new Student object w/ given name and grade
 	 *  @param: inpName (String), inpGrade (int)
 	 *  @return: void
 	**/
-	public Student(String inpName, int inpGrade){
-		this.name = inpName;
-		this.grade = inpGrade;
-	}
 	
 	//DO NOT CHANGE THIS METHOD
 	/** toString
@@ -55,93 +47,54 @@ public class Student {
 	 * @param: new name (String)
 	 *  @return: void
 	 *  **/
-	public void setName(String newName) {
-		this.name = newName;
-	}
 	
 	/**	getName
 	 * returns the student's name
 	 * @param: null
 	 * @return: String
 	**/
-	public String getName() {
-		return this.name;
-	}
 	
 	/** setGrade
 	 *  changes the current grade value for the student
 	 *  @param: new grade (int)
 	 *  @return: void
 	**/
-	public void setGrade(int inpGrade) {
-		this.grade = inpGrade;
-	}
 	
 	/** getGrade
 	 *  returns the current grade value for the student
 	 *  @param: null
 	 *  @return: int
 	**/
-	public int getGrade() {
-		return this.grade;
-	} 
 	
 	/** getCourses
 	 * 	returns the array of courses
 	 *  @param: null
 	 *  @return: ArrayList<Course>
 	**/
-	public ArrayList<Course> getCourses() {
-		return this.courses;
-	}
 	
 	/** getCourse
 	 * 	returns a course, as specified by inputs
 	 *  @param: code (String), year (int), sem (int)
 	 *  @return: Course
 	**/
-	public Course getCourse(String code, int year, int sem) {
-		for(Course c : this.courses) {
-			if(c.getCode().equals(code) && c.getYear() == year && c.getSem() == sem) {
-				
-				return c;
-			}
-		}
-		return new Course(null, -1, -1);
-	}
   
 	/** addCourse
 	 *  adds new Course to ArrayList of courses
 	 *  @param: course code (String), course year (int), course semester (int)
 	 *  @return: void
 	**/
-	public void addCourse(String courseCode, int courseYear, int courseSemester) {
-		this.courses.add(new Course(courseCode, courseYear, courseSemester));
-		return;
-	}
 	
 	/** addMark
 	 *  adds new mark to a given course
 	 *  @param: course code (String), newMark (int)
 	 *  @return: void
 	**/
-	public void addMark(Course course, int newMark) {
-		this.courses.get(this.courses.indexOf(course)).addMark(newMark);
-		return;
-	}
 	
 	/** avg
 	 *  returns a student's overall average
 	 *  @param: null
 	 *  @return: double
 	**/
-	public double avg() {
-		double avg = 0;
-		for(Course c : this.courses) {
-			avg+=c.avg();
-		}
-		return avg/(courses.size());
-	}
 	
 	/** avg
 	 * 	overloading avg() 
@@ -149,17 +102,6 @@ public class Student {
 	 *  @param: year (int), semester (int)
 	 *  @return: double
 	**/
-	public double avg(int year) {
-		double avg = 0;
-		int numCourses = 0;
-		for(Course c : this.courses) {
-			if (c.getYear() == year) {
-				avg+=c.avg();
-				numCourses++;
-			}
-		}
-		return avg/numCourses;
-	}
 	
 	/** avg
 	 * 	overloading avg() 
@@ -167,17 +109,6 @@ public class Student {
 	 *  @param: year (int), semester (int)
 	 *  @return: double
 	**/
-	public double avg(int year, int sem) {
-		double avg = 0;
-		int numCourses = 0;
-		for(Course c : this.courses) {
-			if (c.getYear() == year && c.getSem() == sem) {
-				avg+=c.avg();
-				numCourses++;
-			}
-		}
-		return avg/numCourses;
-	}
 	
 	
 	//OPTIONAL (Level 4) EXTENSIONS ONCE BASE IS COMPLETE
@@ -187,15 +118,6 @@ public class Student {
 	 *  @param: year (int)
 	 *  @return: ArrayList<Course> 
 	**/
-	public ArrayList<Course> getCourses(int year){
-		ArrayList<Course> yearCourses = new ArrayList<>();
-		for(Course c : this.courses) {
-			if(c.getYear() == year) {
-				yearCourses.add(c);
-			}
-		}
-		return yearCourses;
-	}
 	
 	/** getCourses
 	 * 	overloading getCourses
@@ -203,15 +125,6 @@ public class Student {
 	 *  @param: semester (int), year (int)
 	 *  @return: ArrayList<Course> 
 	**/
-	public ArrayList<Course> getCourses(int year, int sem){
-		ArrayList<Course> semCourses = new ArrayList<>();
-		for(Course c : this.courses) {
-			if(c.getYear() == year && c.getSem() == sem) {
-				semCourses.add(c);
-			}
-		}
-		return semCourses;
-	}
 	
 	/** getCourse
 	 *  overloading getCourses so you can find & return all courses matching partial input
@@ -226,14 +139,4 @@ public class Student {
 	 *  @param: subject (String)
 	 *  @return: Course ArrayList 
 	**/
-	public ArrayList<Course> getCourses(String sub){
-		ArrayList<Course> subCourses = new ArrayList<>();
-		for(Course c : this.courses) {
-			if(c.getCode().length() >=4 && sub.equals(c.getCode().substring(0, 3))) {
-				subCourses.add(c);
-			}
-		}
-		return subCourses;
-	}
-	
 }
